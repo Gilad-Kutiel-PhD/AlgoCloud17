@@ -10,7 +10,7 @@
 \def\timeCost{7} 
 
 % PHYSICAL NETWORK
-\node at(2,4.2) {Physical Network};
+\node at(2,4.2) {Physical Network (SDN)};
 
 \node[on=<\timeColor>{orange}](1) at(4,3.5) {\faServer};
 \node(2) at(1,3) {\faServer};
@@ -47,7 +47,7 @@
 
 
 % SERVICE CHAIN 
-\node at(7,4.2) {Service Chain};
+\node at(7,4.2) {Service Chain (VF)};
 \begin{scope}[on=<\timeColor>{every node/.append style={orange}}]
 \node(s1) at(7, 3.5) {\faFire};
 \node(s3) at(8, 2.5) {\faUnlock};
@@ -110,9 +110,9 @@
 	every node/.style={hide}, 
 	on=<\timeCost>{every node/.style={show}}
 ] 
-\node[right = 1mm of 1] {2\$};
-\node[above left = 1mm of 4] {3\$};
-\node[below left = 1mm of 7] {6\$};
+\node[right = 0 of 1] {2\$};
+\node[above left = 0 of 4] {3\$};
+\node[below left = 0 of 7] {6\$};
 \end{scope}
 
 \end{tikzpicture}
