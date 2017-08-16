@@ -1,0 +1,58 @@
+\begin{tikzpicture}[x=9mm, thick]
+
+\begin{scope}[every node/.append style={draw=none}]
+\node(s1) at(0,1){\faServer};
+\end{scope}
+
+\begin{scope}[every node/.style={label}]
+\node[above=0 of s1] {15 \cpu};
+\end{scope}
+
+\begin{scope}[every node/.append style={draw=none, minimum size=15, rectangle}]
+
+\begin{scope}[yshift=-.5cm, every node/.append style={blue}]
+\node(f1) at(-5, 0){\faGear};
+\node(f2) at(-3, 0){\faWrench};
+\node(f3) at(-1, 0){\faGears};
+\node(f4) at(1, 0){\faFlash};
+\node(f5) at(3, 0){\faFlask};
+\node(f6) at(5, 0){\faFilter};
+\end{scope}
+
+\begin{scope}[yshift=-2cm, every node/.append style={orange}]
+\node(c1) at(-5, 0){\faGear};
+\node(c2) at(-3, 0){\faWrench};
+\node(c3) at(-1, 0){\faGears};
+\node(c4) at(1, 0){\faFlash};
+\node(c5) at(3, 0){\faFlask};
+\node(c6) at(5, 0){\faFilter};
+\end{scope}
+\end{scope}
+
+\begin{scope}[->]
+\foreach \j [count=\i] in {2,...,6}{
+	\draw (f\i) -- (f\j);
+	\draw (f\i) -- (c\j);
+	\draw (c\i) -- (f\j);
+	\draw (c\i) -- (c\j);
+}
+\end{scope}
+
+\begin{scope}[every node/.style={label}]
+\foreach \c [count=\i] in {2,3,6,7,4,8}{
+	\node[above=0 of f\i]{\c{}\$ / 0 \cpu};
+	\node[below=0 of c\i]{0\$ / \c{} \cpu};
+}
+\end{scope}
+
+\begin{scope}[yshift=-1.25cm]
+\node(s) at(-6, 0) {};
+\node(t) at(6, 0) {};
+\end{scope}
+
+\draw (s) -- (f1);
+\draw (s) -- (c1);
+\draw (f6) -- (t);
+\draw (c6) -- (t);
+
+\end{tikzpicture}
