@@ -14,16 +14,27 @@
 \tikzset{
 	label/.style={
 		rectangle,	
-		midway,
-		sloped,
 		draw=none,
 		fill=white,
-		inner sep=1pt,
+		font=\tiny,
+		inner sep=0,
 		minimum height=0,
 		minimum width=0,
 	},
-	label below/.style={label, below},
-	label above/.style={label, above},
+	edge label/.style={
+		label,
+		midway,
+		sloped,
+	},
+	label below/.style={edge label, below=1mm},
+	label above/.style={edge label, above=1mm},
+}
+
+\tikzset{
+	blur/.style={
+		black!20,
+		thin
+	}
 }
 
 \tikzset{default node/.style={

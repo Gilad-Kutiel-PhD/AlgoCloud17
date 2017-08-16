@@ -1,0 +1,88 @@
+\begin{tikzpicture}[every node/.append style={draw=none}, -, thick]
+
+\def\mb{\fontsize{5}{5}\selectfont mb/s}
+\def\ms{\fontsize{5}{5}\selectfont ms}
+\def\cpu{\fontsize{5}{5}\selectfont CPU}
+
+% PHYSICAL NETWORK
+\node at(2,4.2) {Physical Network};
+\node[orange](1) at(4,3.5) {\faServer};
+\node(2) at(1,3) {\faServer};
+\node(3) at(2,2) {\faServer};
+\node[green](4) at(.5,1.5) {\faServer};
+\node(5) at(0,0) {\faServer};
+\node(6) at(3,0) {\faServer};
+\node[red](7) at(1,-1) {\faServer};
+\node(8) at(3,-2) {\faServer};
+
+\draw[blur] (1) -- (2);
+\draw[->] (1) -- (3) 
+node[label above] {$\geq 5$ \mb}; 
+\draw[blur] (2) -- (4);
+\draw[->] (3) -- (4) node[label above] {$\geq 5$ \mb};
+\draw[blur] (3) -- (5);
+\draw[blur] (3) -- (6);
+\draw[->] (4) -- (5) node[label above]{$\geq 8$ \mb};
+\draw[->] (5) -- (7) node[label above]{$\geq 8$ \mb};
+\draw[blur] (6) -- (7);
+\draw[blur] (6) -- (8);
+\draw[->] (7) -- (8) node[label above]{$\geq 3$ \mb};
+
+\draw[->, dashed] (1) to[bend left] node[label below]{$\leq 10$ \ms} (8);
+
+% SERVICE CHAIN 
+\node at(7,4.2) {Service Chain};
+\node[](s) at(9, 3.5) {S};
+
+\node[orange](s1) at(7, 3.5) {\faFire};
+\node(s2) at(6, 2.5) {\faWrench};
+\node[orange](s3) at(8, 2.5) {\faUnlock};
+\node[green](s4) at(8, 1.2) {\faWrench};
+\node[green](s5) at(7, .5) {\faGear};
+\node[red](s6) at(6, -.5) {\faGears};
+\node[red](s7) at(8, -.5) {\faFilter};
+\node[red](s8) at(7, -1.5) {\faFire};
+
+\node[](t) at(9, -1.5) {T};
+
+\begin{scope}[->]
+\draw (s) -- (s1);
+
+\draw[blur] (s1) -- (s2);
+\draw (s1) -- (s3);
+\draw[blur] (s2) -- (s5);
+\draw (s3) -- (s4) node[label above]{$\geq 5$ \mb};
+\draw (s4) -- (s5);
+\draw (s5) -- (s6) node[label above]{$\geq 8$ \mb};
+\draw[blur] (s5) -- (s7);
+\draw (s6) -- (s7);
+\draw (s7) -- (s8);
+
+\draw (s8) -- (t) node[label below]{$\geq 3$ \mb};
+
+\draw[dashed] (s) to[bend left] node[label above]{$\leq 10$ \ms} (t);
+\end{scope}
+
+% CPU
+\begin{scope}[every node/.style={label}]
+\node[left = 0 of s1] {\tiny 3 \cpu};
+\node[left = 0 of s3] {\tiny 2 \cpu};
+\node[above = 0 of 1] {\tiny $\geq 5$ \cpu};
+
+\node[right = 0 of s4] {\tiny 2 \cpu};
+\node[right = 0 of s5] {\tiny 1 \cpu};
+\node[above left = 0 of 4] {\tiny $\geq 3$ \cpu};
+
+\node[left = 0 of s6] {\tiny 2 \cpu};
+\node[right = 0 of s7] {\tiny 1 \cpu};
+\node[below left = 0 of s8] {\tiny 1 \cpu};
+\node[below left = 0 of 7] {\tiny $\geq 4$ \cpu};
+\end{scope}
+
+
+% COSTS 
+\node[right = 1mm of 1] {2\$};
+\node[above left = 1mm of 4] {3\$};
+\node[below left = 1mm of 7] {6\$};
+
+\end{tikzpicture}
