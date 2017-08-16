@@ -1,0 +1,71 @@
+\begin{tikzpicture}[-, x=9mm, thick]
+
+\node(1) at(0,0){1};
+\node(2) at(1,2){2};
+\node(3) at(3,2){3};
+\node(4) at(1.5,-1){4};
+\node(5) at(4,.5){5};
+\node(6) at(-1,1){6};
+
+\draw (1) -- (2);
+\draw (1) -- (4);
+\draw (1) -- (6);
+\draw (2) -- (3);
+\draw (2) -- (4);
+\draw (2) -- (6);
+\draw (3) -- (4);
+\draw (3) -- (5);
+\draw (4) -- (5);
+
+\begin{scope}[every node/.append style={draw=none}]
+\node(s1) at(7,1){\faServer};
+\node(s2) at(8,3){\faServer};
+\node(s3) at(10,3){\faServer};
+\node(s4) at(8.5,0){\faServer};
+\node(s5) at(11,1.5){\faServer};
+\node(s6) at(6,2){\faServer};
+
+\draw (s1) -- (s2);
+\draw (s1) -- (s4);
+\draw (s1) -- (s6);
+\draw (s2) -- (s3);
+\draw (s2) -- (s4);
+\draw (s2) -- (s6);
+\draw (s3) -- (s4);
+\draw (s3) -- (s5);
+\draw (s4) -- (s5);
+\end{scope}
+
+\begin{scope}[every node/.style={label}]
+\node[left=0 of s1] {1 \cpu};
+\node[left=0 of s2] {1 \cpu};
+\node[right=0 of s3] {1 \cpu};
+\node[left=0 of s4] {1 \cpu};
+\node[left=0 of s5] {1 \cpu};
+\node[left=0 of s6] {1 \cpu};
+\end{scope}
+
+\begin{scope}[every node/.append style={draw=none, minimum size=15, rectangle}]
+\node(f1) at(5.3, -1){\faGear};
+\node(f2) at(6.5, -1){\faWrench};
+\node(f3) at(7.7, -1){\faGears};
+\node(f4) at(8.9, -1){\faFlash};
+\node(f5) at(10.1, -1){\faFlask};
+\node(f6) at(11.3, -1){\faFilter};
+\end{scope}
+
+\begin{scope}[->]
+\draw (f1) -- (f2);
+\draw (f2) -- (f3);
+\draw (f3) -- (f4);
+\draw (f4) -- (f5);
+\draw (f5) -- (f6);
+\end{scope}
+
+\begin{scope}[every node/.style={label}]
+\foreach \i in {1,...,6}{
+	\node[below=0 of f\i]{1 \cpu};
+}
+\end{scope}
+
+\end{tikzpicture}
