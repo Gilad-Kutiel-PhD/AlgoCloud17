@@ -1,20 +1,23 @@
 \begin{frame}{Small, Integral Costs, DAG}
 \begin{columns}
-\begin{column}{.51\textwidth}
+\begin{column}{.53\textwidth}
 
-\begin{itemize}
+Min Latency s.t. Cost Budget.
+\only<+>{}
+\begin{itemize}[<+>]
   \item Pick 2 arcs ($x \geq y$)
-  \item {\color{orange} Orange Problem} - As before
+  \item {\color{orange} Orange Problem} - Single Node
   \item {\color{blue} Blue Problem} - Shortest Path
-  \item {\color{green} Green Problem} - Recursion 
+  \item {\color{green} Green Problem} - Recursively 
 \end{itemize}
 \vspace{4cm}
 
 \end{column}
-\begin{column}{.69\textwidth}
+\begin{column}{.6\textwidth}
 
 \input{fig-small-integral-costs-dag}
 
 \end{column}
 \end{columns}
+\onslide<+>{Search for the minimum budget s.t. Latency constraint.}
 \end{frame}

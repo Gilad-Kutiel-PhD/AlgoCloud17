@@ -1,45 +1,92 @@
 \begin{tikzpicture}[thick, every node/.append style={draw=none}]
 
-\begin{scope}[y=1.2cm]
-\node[green](s1) at(2.5, 2){\faServer};
-\node[green](s2) at(1, 1.5){\faServer};
-\node[green](s3) at(3, 1) 	{\faServer};
-\node[green](s4) at(1.5, 0){\faServer};
-\node[blue](s5) at(0,-1.5){\faServer};
-\node[blue](s6) at(3,-1) 	{\faServer};
-\node[orange](s7) at(2,-2) 	{\faServer};
+\def\timeChoose{2-}
+\def\timeColor{3-}
+
+% SDN
+\begin{scope}[x=.9cm, y=1.2cm]
+
+\begin{scope}[on=<\timeColor>{every node/.append style={green}}]
+\node(s1) at(2.5, 2){\faServer};
+\node(s3) at(3, 1) 	{\faServer};
+\node(s4) at(1.5, 0){\faServer};
+\node(s2) at(1, 1.5){\faServer};
 \end{scope}
 
-\draw[green] (s1) -- (s2);
-\draw[green] (s1) -- (s3);
-\draw[green] (s2) -- (s4);
-\draw[blur] (s2) -- (s5);
-\draw[green] (s3) -- (s4);
-\draw[blur] (s3) -- (s6);
-\draw[dashed] (s4) -- (s5) node[label below]{x\mb};
-\draw[blur] (s4) -- (s6);
-\draw[blue] (s5) -- (s6);
-\draw[blue] (s5) -- (s7);
-\draw[blue] (s6) -- (s7);
-
-\begin{scope}[y=1.4cm, yshift=-.5cm, xshift=3.5cm]
-\node[green](f1) at(2, 2){\faGear};
-\node[green](f2) at(1, 1){\faWrench};
-\node[green](f3) at(3, 1){\faGears};
-\node[green](f4) at(1, 0){\faFlash};
-\node[orange](f5) at(3, 0){\faFlask};
-\node[orange](f6) at(1,-1){\faFilter};
-\node[orange](f7) at(3,-1){\faCut};
+\begin{scope}[on=<\timeColor>{every node/.append style={blue}}]
+\node (s5) at(.2,-1){\faServer};
+\node (s6) at(3,-1) 	{\faServer};
+\end{scope}
+\begin{scope}[on=<\timeColor>{every node/.append style={orange}}]
+\node(s7) at(2,-2) 	{\faServer};
 \end{scope}
 
-\draw[green] (f1) -- (f2);
-\draw[green] (f1) -- (f3);
-\draw[green] (f2) -- (f4);
-\draw[green] (f3) -- (f4);
-\draw[blur] (f2) -- (f5);
-\draw[dashed] (f4) -- (f6) node[label below]{y\mb};;
-\draw[orange] (f5) -- (f7);
-\draw[orange] (f6) -- (f5);
-\draw[orange] (f6) -- (f7);
+\end{scope}
+
+\draw[on=<{\timeChoose}>{dashed}] 
+    (s4) -- (s5) node[label below]{
+    {\onslide<\timeChoose>{x\mb}}
+    };
+
+\begin{scope}[on=<\timeColor>{green}]
+\draw (s1) -- (s2);
+\draw (s1) -- (s3);
+\draw (s2) -- (s4);
+\draw (s3) -- (s4);
+\end{scope}
+
+\begin{scope}[on=<\timeColor>{blue}]
+\draw (s5) -- (s6);
+\draw (s5) -- (s7);
+\draw (s6) -- (s7);
+\end{scope}
+
+\begin{scope}[on=<\timeColor>{blur}]
+\draw (s2) -- (s5);
+\draw (s3) -- (s6);
+\draw (s4) -- (s6);
+\end{scope}
+% /SDN
+
+% SC
+\begin{scope}[y=1.4cm, yshift=-.5cm, xshift=3cm]
+
+\begin{scope}[on=<\timeColor>{every node/.append style={green}}]
+\node(f1) at(2, 2){\faGear};
+\node(f2) at(1, 1){\faWrench};
+\node(f3) at(3, 1){\faGears};
+\node(f4) at(1, 0){\faFlash};
+\end{scope}
+
+\begin{scope}[on=<\timeColor>{every node/.append style={orange}}]
+\node(f5) at(3, 0){\faFlask};
+\node(f6) at(1,-1){\faFilter};
+\node(f7) at(3,-1){\faCut};
+\end{scope}
+
+\end{scope}
+
+\begin{scope}[on=<\timeColor>{green}]
+\draw (f1) -- (f2);
+\draw (f1) -- (f3);
+\draw (f2) -- (f4);
+\draw (f3) -- (f4);
+\end{scope}
+
+\begin{scope}[on=<\timeColor>{blur}]
+\draw (f2) -- (f5);
+\end{scope}
+
+\draw[on=<{\timeChoose}>{dashed}] 
+(f4) -- (f6) node[label below]{
+{\onslide<\timeChoose>{y\mb}}
+};
+
+\begin{scope}[on=<\timeColor>{orange}]
+\draw (f5) -- (f7);
+\draw (f6) -- (f5);
+\draw (f6) -- (f7);
+\end{scope}
+% /SC
 
 \end{tikzpicture}
