@@ -1,14 +1,19 @@
 \begin{tikzpicture}[x=1.2cm, thick, every node/.append style={draw=none}]
 
 \foreach \f[count=\i] in {
-\faGear, \faFlash, \faWrench, \faFilter, \faGears, \faFlask
+\faGear, \faFlash, \faWrench, \faFilter, \faGears
 }{ \node(\i) at(\i,0) {\faServer};
 	\node(f\i) at(\i,-1) {\f};
 }
 
-\foreach \j[count=\i] in {2,...,6}{
+\foreach \j[count=\i] in {2,...,5}{
 	\draw[-] (\i) -- (\j);
 	\draw[] (f\i) -- (f\j);
 }
+
+\node[left=0 of 1] {$\cdots$};
+\node[right=0 of 5] {$\cdots$};
+\node[left=0 of f1] {$\cdots$};
+\node[right=0 of f5] {$\cdots$};
 
 \end{tikzpicture}
