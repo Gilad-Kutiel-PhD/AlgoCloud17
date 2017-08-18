@@ -1,8 +1,28 @@
 \begin{frame}{Our Results}
-\begin{itemize}[<+>]
-  \item SDN is DAG + small, integral costs - Optimal 
-  \item SDN is DAG + \st{small, integral costs} - FPTAS
-  \item<+-> \st{SDN is DAG} + \st{small, integral costs} - FPTAS
-  \footnote{\onslide<+>{running time depends on SDN's typology}}
-\end{itemize}
+
+\begin{table}
+\def\arraystretch{1.5}
+\begin{tabular}{c | c | l}
+
+SDN is a DAG	& Integral, Small Costs	& Our Result
+\onslide<+->{
+\\
+\hline
+\faCheckSquareO	& \faCheckSquareO 		& Optimal
+}
+\onslide<+->{
+\\
+\faCheckSquareO	& \faMinus				& Almost Optimal (FPTAS)
+}
+\onslide<+->{
+\\
+\faMinus	& \faMinus					& Almost Optimal (FPTAS)
+}
+\onslide<+>{
+\footnote{\onslide<.>{running time depends on SDN's typology}}
+}
+
+\end{tabular}
+\end{table}
+
 \end{frame}
