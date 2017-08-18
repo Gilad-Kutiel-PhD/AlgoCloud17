@@ -19,15 +19,13 @@ Min CPU Given a Cost Budget (e.g. 5\$).
 \setlength\tabcolsep{2mm}
 \begin{tabular}{| c | c | c | c | c | c | c | c |}
 
-\hline
-		\$&s 				&\faGear 				&\faWrench 			&\faGears					&\faFlash 				&\faFlask 				&\faFilter	
-
-\\\hline 5&0 				&\cpuval{2}{3}{3}		&\cpuval{5}{6}{5} 	&\cpuval{8}{9}{7}			&\cpuval{11}{12}{8}		&\cpuval{14}{15}{-}		&\cpuval{15}{16}{11}
-\\\hline 4&\cpuval{2}{1}{0}	&\cpuval{3,8}{4}{3}		&\cpuval{6,11}{7}{5}&\cpuval{9,11}{10}{7} 		&\cpuval{11,15}{12}{8}	&\cpuval{14,15}{15}{-}	&\cpuval{15}{16}{13}
-\\\hline 3&\cpuval{3}{1}{0}	&\cpuval{3,5,9}{4}{3}	&\cpuval{6,11}{7}{5}&\cpuval{9,11}{10}{7}		&\cpuval{12,15}{13}{10}	&\cpuval{14,15}{15}{-}	&\cpuval{15}{16}{-} 
-\\\hline 2&\cpuval{3}{1}{0}	&\cpuval{3,6,9}{4}{3}	&\cpuval{6,12}{7}{-}&\cpuval{9,12}{10}{7} 		&\cpuval{13,15}{14}{-} 	&\cpuval{14,15}{15}{-}	&\cpuval{15}{16}{-}
-\\\hline 1&\cpuval{3}{1}{0}	&\cpuval{3,6,9}{4}{3}	&\cpuval{6,14,13}{7}{-}&\cpuval{9,13}{10}{-}	&\cpuval{13,15}{14}{-} 	&\cpuval{14,15}{15}{-}	&\cpuval{15}{16}{-}
-\\\hline 0&\cpuval{3}{1}{0}	&\cpuval{3,6,9}{4}{-}	&\cpuval{6,13,14}{7}{-}&\cpuval{9,13}{10}{-}	&\cpuval{13,15}{14}{-} 	&\cpuval{14,15}{15}{-}	&\cpuval{15}{16}{-}
+\hline	\$&s 						&\faGear 					&\faWrench 					&\faGears				&\faFlash 					&\faFlask 				&\faFilter	
+\\\hline 5&0 						&\cpuval{2}{3}{3}			&\cpuval{5}{6}{5} 			&\cpuval{8}{9}{7}		&\cpuval{11}{12}{8}			&\cpuval{14}{15}{-}		&\cpuval{15,17-18}{16}{11}
+\\\hline 4&\cpuval{2}{1}{0}			&\cpuval{3,8}{4}{3}			&\cpuval{6,11}{7}{5}		&\cpuval{9,11}{10}{7}	&\cpuval{11,15,17-18}{12}{8}&\cpuval{14,15}{15}{-}	&\cpuval{15}{16}{13}
+\\\hline 3&\cpuval{3}{1}{0}			&\cpuval{3,5,9}{4}{3}		&\cpuval{6,11,17-18}{7}{5}	&\cpuval{9,11}{10}{7}	&\cpuval{12,15}{13}{10}		&\cpuval{14,15}{15}{-}	&\cpuval{15}{16}{-} 
+\\\hline 2&\cpuval{3}{1}{0}			&\cpuval{3,6,9}{4}{3}		&\cpuval{6,12}{7}{-}		&\cpuval{9,12}{10}{7} 	&\cpuval{13,15}{14}{-} 		&\cpuval{14,15}{15}{-}	&\cpuval{15}{16}{-}
+\\\hline 1&\cpuval{3}{1}{0}			&\cpuval{3,6,9,17-18}{4}{3}	&\cpuval{6,14,13}{7}{-}		&\cpuval{9,13}{10}{-}	&\cpuval{13,15}{14}{-} 		&\cpuval{14,15}{15}{-}	&\cpuval{15}{16}{-}
+\\\hline 0&\cpuval{3,17-18}{1}{0}	&\cpuval{3,6,9}{4}{-}		&\cpuval{6,13,14}{7}{-}		&\cpuval{9,13}{10}{-}	&\cpuval{13,15}{14}{-} 		&\cpuval{14,15}{15}{-}	&\cpuval{15}{16}{-}
 \\\hline
 \end{tabular}
 
@@ -35,5 +33,7 @@ Min CPU Given a Cost Budget (e.g. 5\$).
 \end{column}
 \end{columns}
 
-\onslide<5>{}
+\begin{center}
+\onslide<19>{Search for min Budget s.t. Feasibility}
+\end{center}
 \end{frame}

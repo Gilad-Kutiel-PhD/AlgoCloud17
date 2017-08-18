@@ -1,7 +1,7 @@
 \begin{tikzpicture}[thick, every node/.append style={draw=none}]
 
-\node(s) at(0,2) {\faServer};
-\node[above=0 of s]{\scriptsize 10\cpu};
+\node[on=<18>{red}](s) at(0,2) {\faServer};
+\node[above=0 of s, on=<18>{red}]{\scriptsize 10\cpu};
 
 \begin{scope}[xshift=.5cm, y=1.4cm]
 \node(s) at(2, 2.5){s};
@@ -27,13 +27,13 @@
 
 \tikzstyle{cur}=[orange]
 
-\draw[on=<2-3>{cur}] (s) -- (f1);
-\draw[on=<5-6>{cur}] (f1) -- (f2);
+\draw[on=<{2-3,17-18}>{cur}] (s) -- (f1);
+\draw[on=<{5-6,17-18}>{cur}] (f1) -- (f2);
 \draw[on=<8-9>{cur}] (f1) -- (f3);
-\draw[on=<11-13>{cur}] (f2) -- (f4);
+\draw[on=<{11-13,17-18}>{cur}] (f2) -- (f4);
 \draw[on=<11-13>{cur}] (f3) -- (f4);
-\draw[on=<14-15>{cur}] (f2) -- (f5);
-\draw (f4) -- (f6);
-\draw (f5) -- (f6);
+\draw[on=<14>{cur}] (f2) -- (f5);
+\draw[on=<{15-16,17-18}>{cur}] (f4) -- (f6);
+\draw[on=<15-16>{cur}] (f5) -- (f6);
 
 \end{tikzpicture}
