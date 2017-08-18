@@ -9,110 +9,98 @@
 \def\timeLat{6} 
 \def\timeCost{7} 
 
-% PHYSICAL NETWORK
-\node at(2,4.2) {Physical Network (SDN)};
+% SDN
+\node at(4.5,2.5) {SDN};
 
-\node[on=<\timeColor>{orange}](1) at(4,3.5) {\faServer};
-\node(2) at(1,3) {\faServer};
-\node(3) at(2,2) {\faServer};
-\node[on=<\timeColor>{green}](4) at(.5,1.5) {\faServer};
-\node(5) at(0,0) {\faServer};
-\node(6) at(3,0) {\faServer};
-\node[on=<\timeColor>{red}](7) at(1,-1) {\faServer};
-\node(8) at(3,-2) {\faServer};
+\begin{scope}[y=.6cm]
 
-\begin{scope}[every node/.style={hide}]
-\begin{scope}[on=<\timeBlur>{blur}]
-\draw (1) -- (2);
-\draw (2) -- (4);
-\draw (3) -- (5);
-\draw (3) -- (6);
-\draw (6) -- (7);
-\draw (6) -- (8);
-\end{scope}
-\begin{scope}[on=<\timeBlur>{->}, on=<\timeBw>{every node/.style={show}}]
-\draw(1) -- (3) node[label above] {$\geq 5$ \mb}; 
-\draw(3) -- (4) node[label above] {$\geq 5$ \mb};
-\draw(4) -- (5) node[label above]{$\geq 8$ \mb};
-\draw(5) -- (7) node[label above]{$\geq 8$ \mb};
-\draw(7) -- (8) node[label above]{$\geq 3$ \mb};
-\end{scope}
+\node(0) at(0,1) {\Huge \faCloud};
+\node[orange](1) at(1.5,1) {\faServer} node[below left=0 of 1]{10\cpu};
+\node(2) at(2,3) {\faServer};
+\node(3) at(3,-2) {\faServer};
+\node(4) at(4,1.5) {\faServer};
+\node[blue](5) at(4.5,-1) {\faServer} node[below right=0 of 5]{8\cpu};
+\node(6) at(6,3) {\faServer};
+\node(7) at(7,-1) {\faServer};
+\node[red](8) at(7.5,1) {\faServer} node[above right=0 of 8]{12\cpu};;
+\node(9) at(9,1) {\Huge \faCloud};
+
 \end{scope}
 
-% LABELS
-\only<1>{
-\node[right = 0 of 1]{S};
-\node[right = 0 of 8]{T};
-}
-
+\draw[->] (0) -- (1);
+\draw[blur] (1) -- (2);
+\draw[blur] (1) -- (3);
+\draw[->] (1) -- (4) node[label above]{$\geq 3$\mb};
+\draw[blur] (2) -- (4);
+\draw[blur] (3) -- (4);
+\draw[blur] (3) -- (5);
+\draw[->] (4) -- (5) node[label above]{$\geq 3$\mb};
+\draw[blur] (4) -- (6);
+\draw[blur] (5) -- (6);
+\draw[->] (5) -- (7) node[label above]{$\geq 3$\mb};
+\draw[blur] (6) -- (7);
+\draw[blur] (6) -- (8);
+\draw[->] (7) -- (8) node[label above]{$\geq 3$\mb};
+\draw[->] (8) -- (9);
 
 % SERVICE CHAIN 
-\node at(7,4.2) {Service Chain (VF)};
-\begin{scope}[on=<\timeColor>{every node/.append style={orange}}]
-\node(s1) at(7, 3.5) {\faFire};
-\node(s3) at(8, 2.5) {\faUnlock};
-\end{scope}
-\begin{scope}[on=<\timeColor>{every node/.append style={green}}]
-\node(s4) at(8, 1.2) {\faWrench};
-\node(s5) at(7, .5) {\faGear};
-\end{scope}
-\begin{scope}[on=<\timeColor>{every node/.append style={red}}]
-\node(s6) at(6, -.5) {\faGears};
-\node(s7) at(8, -.5) {\faFilter};
-\node(s8) at(7, -1.5) {\faFire};
-\end{scope}
-\node[](s) at(9, 3.5) {S};
-\node(s2) at(6, 2.5) {\faWrench};
-\node[](t) at(9, -1.5) {T};
-
-\begin{scope}[->, every node/.style={hide}]
-\begin{scope}[on=<\timeBlur>{blur}]
-\draw (s1) -- (s2);
-\draw (s2) -- (s5);
-\draw (s5) -- (s7);
-\end{scope}
-\begin{scope}[on=<\timeBw>{every node/.style={show}}]
-\draw (s) -- (s1);
-\draw (s1) -- (s3);
-\draw (s3) -- (s4) node[label above]{5 \mb};
-\draw (s4) -- (s5);
-\draw (s5) -- (s6) node[label above]{8 \mb};
-\draw (s6) -- (s7);
-\draw (s7) -- (s8);
-\draw (s8) -- (t) node[label below]{3 \mb};
-\end{scope}
-\end{scope}
-
-% CPU
-\begin{scope}[every node/.style={label, hide, on=<\timeCpu>{show}}]
-\node[left = 0 of s1] {\tiny 3 \cpu};
-\node[left = 0 of s3] {\tiny 2 \cpu};
-\node[above = 0 of 1] {\tiny $\geq 5$ \cpu};
-
-\node[right = 0 of s4] {\tiny 2 \cpu};
-\node[right = 0 of s5] {\tiny 1 \cpu};
-\node[above left = 0 of 4] {\tiny $\geq 3$ \cpu};
-
-\node[left = 0 of s6] {\tiny 2 \cpu};
-\node[right = 0 of s7] {\tiny 1 \cpu};
-\node[below left = 0 of s8] {\tiny 1 \cpu};
-\node[below left = 0 of 7] {\tiny $\geq 4$ \cpu};
-\end{scope}
-
-% LAT
-\onslide<\timeLat>{
-\draw[->, dashed] (1) to[bend left] node[label below]{$\leq 10$ \ms} (8);
-\draw[->, dashed] (s) to[bend left] node[label above]{$\leq 10$ \ms} (t);
-}
-
-% COSTS 
+\tikzstyle{func}=[rectangle, minimum height=4mm]
 \begin{scope}[
-	every node/.style={hide}, 
-	on=<\timeCost>{every node/.style={show}}
-] 
-\node[right = 0 of 1] {2\$};
-\node[above left = 0 of 4] {3\$};
-\node[below left = 0 of 7] {6\$};
+	xshift=1cm
+	, yshift=-2.5cm, ->
+	, every node/.append style={
+		% draw
+	}
+]
+	\node(s) at(-1, 0){\Huge \faCloud};
+	
+	\foreach \f[count=\i] in {
+		\faGear
+		, \faFlash
+	}{ 
+		\node[orange, func](f\i) at(\i,0) {\f};
+	}
+
+	\node[below=0 of f1]{3\cpu};
+	\node[below=0 of f2]{5\cpu};
+
+	\foreach \f[count=\j, evaluate=\j as \i using int(\j+1)] in {
+		, \faWrench
+		, \faFilter
+		, \faGears
+	}{ 
+		\node[blue, func](f\i) at(\i,0) {\f};
+	}
+
+	\node[above=0 of f3]{3\cpu};
+	\node[above=0 of f4]{3\cpu};
+	\node[above=0 of f5]{3\cpu};
+	
+	\foreach \f[count=\j, evaluate=\j as \i using int(\j+5)] in {
+		\faFlask
+	}{ 
+		\node[red, func](f\i) at(\i,0) {\f};
+	}
+
+	\node[below=0 of f6]{3\cpu};
+
+	\draw (f1) -- (f2);
+	\draw (f2) -- (f3) node[label above]{3\mb};
+	\draw (f3) -- (f4);
+	\draw (f4) -- (f5);
+	\draw (f5) -- (f6) node[label above]{3\mb};;
+
+	\node(t) at(8, 0){\Huge \faCloud};
+	\draw (s) -- (f1);
+	\draw (f6) -- (t);
+
+	\node[blur](a1) at(3, -1){\faFilter};
+	\node[blur](a2) at(4, -1){\faWrench};
+	\draw[->, blur] (f2) -- (a1);
+	\draw[->, blur] (a1) -- (a2);
+	\draw[->, blur] (a2) -- (f5);
+	\node at(3.5,-2) {Service Chain};
 \end{scope}
 
+	
 \end{tikzpicture}

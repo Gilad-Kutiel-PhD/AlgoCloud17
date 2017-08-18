@@ -16,3 +16,6 @@
 *~
 *#
 .metadata
+*.dvi
+*.fdb_latexmk
+*.fls
