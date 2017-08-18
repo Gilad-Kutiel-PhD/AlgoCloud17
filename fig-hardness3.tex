@@ -1,0 +1,14 @@
+\begin{tikzpicture}[x=1.2cm, thick, every node/.append style={draw=none}]
+
+\foreach \f[count=\i] in {
+\faGear, \faFlash, \faWrench, \faFilter, \faGears, \faFlask
+}{ \node(\i) at(\i,0) {\faServer};
+	\node(f\i) at(\i,-1) {\f};
+}
+
+\foreach \j[count=\i] in {2,...,6}{
+	\draw[-] (\i) -- (\j);
+	\draw[] (f\i) -- (f\j);
+}
+
+\end{tikzpicture}
