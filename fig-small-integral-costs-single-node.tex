@@ -1,0 +1,39 @@
+\begin{tikzpicture}[thick, every node/.append style={draw=none}]
+
+\node(s) at(0,2) {\faServer};
+\node[above=0 of s]{\scriptsize 10\cpu};
+
+\begin{scope}[xshift=.5cm, y=1.4cm]
+\node(s) at(2, 2.5){s};
+\node(f1) at(2, 2){\faGear};
+\node(f2) at(1, 1){\faWrench};
+\node(f3) at(3, 1){\faGears};
+\node(f4) at(1, 0){\faFlash};
+\node(f5) at(3, 0){\faFlask};
+\node(f6) at(2,-1){\faFilter};
+\end{scope}
+
+\def\vals#1#2#3{
+\node[left=0 of #1] {\scriptsize #2\$};
+\node[right=0 of #1] {\scriptsize#3\cpu};
+}
+
+\vals{f1}{1}{3}
+\vals{f2}{2}{2}
+\vals{f3}{1}{4}
+\vals{f4}{1}{3}
+\vals{f5}{4}{1}
+\vals{f6}{1}{3}
+
+\tikzstyle{cur}=[orange]
+
+\draw[on=<2-3>{cur}] (s) -- (f1);
+\draw[on=<5-6>{cur}] (f1) -- (f2);
+\draw[on=<8-9>{cur}] (f1) -- (f3);
+\draw[on=<11-13>{cur}] (f2) -- (f4);
+\draw[on=<11-13>{cur}] (f3) -- (f4);
+\draw[on=<14-15>{cur}] (f2) -- (f5);
+\draw (f4) -- (f6);
+\draw (f5) -- (f6);
+
+\end{tikzpicture}

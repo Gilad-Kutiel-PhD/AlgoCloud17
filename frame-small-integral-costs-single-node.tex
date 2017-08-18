@@ -1,0 +1,39 @@
+% show color, show txt, txt val
+\def\cpuval#1#2#3{\only<#1>{\cellcolor{orange}}\onslide<#2->{#3}}
+\begin{frame}{Small, Integral Costs, Single Node}
+
+
+Min CPU Given a Cost Budget (e.g. 5\$).
+\vspace{5mm}
+
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\begin{center}
+\input{fig-small-integral-costs-single-node}
+\end{center}
+\end{column}
+
+\begin{column}{0.6\textwidth}
+
+\def\arraystretch{1.2}
+\setlength\tabcolsep{2mm}
+\begin{tabular}{| c | c | c | c | c | c | c | c |}
+
+\hline
+		\$&s 				&\faGear 				&\faWrench 			&\faGears					&\faFlash 				&\faFlask 				&\faFilter	
+
+\\\hline 5&0 				&\cpuval{2}{3}{3}		&\cpuval{5}{6}{5} 	&\cpuval{8}{9}{7}			&\cpuval{11}{12}{8}		&\cpuval{14}{15}{-}		&\cpuval{15}{16}{11}
+\\\hline 4&\cpuval{2}{1}{0}	&\cpuval{3,8}{4}{3}		&\cpuval{6,11}{7}{5}&\cpuval{9,11}{10}{7} 		&\cpuval{11,15}{12}{8}	&\cpuval{14,15}{15}{-}	&\cpuval{15}{16}{13}
+\\\hline 3&\cpuval{3}{1}{0}	&\cpuval{3,5,9}{4}{3}	&\cpuval{6,11}{7}{5}&\cpuval{9,11}{10}{7}		&\cpuval{12,15}{13}{10}	&\cpuval{14,15}{15}{-}	&\cpuval{15}{16}{-} 
+\\\hline 2&\cpuval{3}{1}{0}	&\cpuval{3,6,9}{4}{3}	&\cpuval{6,12}{7}{-}&\cpuval{9,12}{10}{7} 		&\cpuval{13,15}{14}{-} 	&\cpuval{14,15}{15}{-}	&\cpuval{15}{16}{-}
+\\\hline 1&\cpuval{3}{1}{0}	&\cpuval{3,6,9}{4}{3}	&\cpuval{6,14,13}{7}{-}&\cpuval{9,13}{10}{-}	&\cpuval{13,15}{14}{-} 	&\cpuval{14,15}{15}{-}	&\cpuval{15}{16}{-}
+\\\hline 0&\cpuval{3}{1}{0}	&\cpuval{3,6,9}{4}{-}	&\cpuval{6,13,14}{7}{-}&\cpuval{9,13}{10}{-}	&\cpuval{13,15}{14}{-} 	&\cpuval{14,15}{15}{-}	&\cpuval{15}{16}{-}
+\\\hline
+\end{tabular}
+
+
+\end{column}
+\end{columns}
+
+\onslide<5>{}
+\end{frame}
