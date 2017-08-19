@@ -1,10 +1,17 @@
 \begin{tikzpicture}[thick, every node/.append style={draw=none}]
 
-\node[on=<18>{red}](s) at(0,2) {\faServer};
-\node[above=0 of s, on=<18>{red}]{\scriptsize 10\cpu};
+% SDN
+\node(0) at(0,3){\faCloud};
+\node(1)[on=<18>{red}] at(0,2) {\faServer};
+\node(2) at(0,1){\faCloud};
+\node[left=0 of 1, on=<18>{red}]{\scriptsize 10\cpu};
+
+\draw (0) -- (1);
+\draw (1) -- (2);
+% /SDN
 
 \begin{scope}[xshift=.5cm, y=1.4cm]
-\node(s) at(2, 2.5){s};
+\node(s) at(2, 2.75){\faCloud};
 \node(f1) at(2, 2){\faGear};
 \node(f2) at(1, 1){\faWrench};
 \node(f3) at(3, 1){\faGears};
