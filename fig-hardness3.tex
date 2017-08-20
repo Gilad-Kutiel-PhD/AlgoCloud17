@@ -1,10 +1,16 @@
 \begin{tikzpicture}[x=1.2cm, thick, every node/.append style={draw=none}]
 
+\node at(-1,0) {\huge \faCloud};
+\node at(-1,-2) {\huge \faCloud};
+
 \foreach \f[count=\i] in {
 \faGear, \faFlash, \faWrench, \faFilter, \faGears
 }{ \node(\i) at(\i,0) {\faServer};
-	\node(f\i) at(\i,-1) {\f};
+	\node(f\i) at(\i,-2) {\f};
 }
+
+\node at(7,0) {\huge \faCloud};
+\node at(7,-2) {\huge \faCloud};
 
 \foreach \j[count=\i] in {2,...,5}{
 	\draw[-] (\i) -- (\j);
