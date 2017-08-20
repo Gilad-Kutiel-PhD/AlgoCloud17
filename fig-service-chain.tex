@@ -1,0 +1,48 @@
+\begin{tikzpicture}[every node/.append style={draw=none}, thick]
+
+\node(s) at(0,.25){\huge \faCloud};
+\foreach \f [count=\i] in {
+\faWrench
+, \faGear
+, \faFlash
+, \faFilter
+, \faFlask
+}{
+	\node(f\i) at(0,-\i){\f};
+}
+\node(t) at(0,-6.25){\huge \faCloud};
+
+\draw (s) -- (f1);
+\foreach \j [count=\i] in {2,...,5}{
+	\draw (f\i) -- (f\j) coordinate[midway] (\i\j); 
+}
+\draw (f5) -- (t);
+
+\onslide<2>
+
+% CPU
+\node[right=0 of f3, label]{20\cpu}; 
+
+\onslide<3>
+% BANDWIDTH
+\node[right=1mm of 12, label]{100\mb}; 
+\node[right=1mm of 45, label]{60\mb};
+
+\onslide<4>
+% LAT
+\draw[dashed] (s) to[out=-45, in=45] node[label above]{90\ms} (t);
+
+\onslide<5>
+% ALT
+\node(a2) at(-1, -2) {\faGears};
+\node(a4) at(-1, -4) {\faFlask};
+\node(a5) at(-1, -5) {\faFilter};
+
+\draw (f1) -- (a2);
+\draw (a2) -- (f3);
+
+\draw (f3) -- (a4);
+\draw (a4) -- (a5);
+\draw (a5) -- (t);
+
+\end{tikzpicture}
