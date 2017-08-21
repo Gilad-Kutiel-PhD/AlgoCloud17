@@ -2,7 +2,7 @@
 
 % SDN
 \node(0) at(0,3){\faCloud};
-\node(1)[on=<18>{red}] at(0,2) {\faServer};
+\node(1)[] at(0,2) {\faServer};
 \node(2) at(0,1){\faCloud};
 \node[left=0 of 1, on=<18>{red}]{\scriptsize 10\cpu};
 
@@ -26,21 +26,25 @@
 }
 
 \vals{f1}{1}{3}
-\vals{f2}{2}{2}
-\vals{f3}{1}{4}
+\vals{f2}{1}{3}
+\vals{f3}{2}{2}
 \vals{f4}{1}{3}
-\vals{f5}{4}{1}
+\vals{f5}{2}{1}
 \vals{f6}{1}{3}
 
 \tikzstyle{cur}=[orange]
 
-\draw[on=<{2-3,17-18}>{cur}] (s) -- (f1);
-\draw[on=<{5-6,17-18}>{cur}] (f1) -- (f2);
-\draw[on=<8-9>{cur}] (f1) -- (f3);
-\draw[on=<{11-13,17-18}>{cur}] (f2) -- (f4);
-\draw[on=<11-13>{cur}] (f3) -- (f4);
-\draw[on=<14>{cur}] (f2) -- (f5);
-\draw[on=<{15-16,17-18}>{cur}] (f4) -- (f6);
-\draw[on=<15-16>{cur}] (f5) -- (f6);
+\draw[on=<{2-3,19-}>{cur}]		(s)  -- (f1);
+\draw[on=<{5-6,19-}>{cur}]		(f1) -- (f2);
+
+\draw[on=<8-9>{cur}]			(f1) -- (f3);
+
+\draw[on=<{11}>{cur}]			(f2) -- (f4);
+
+\draw[on=<13-14>{cur}] 			(f3) -- (f5);
+\draw[on=<{13-14,19-}>{cur}] 	(f2) -- (f5);
+
+\draw[on=<{16}>{cur}]			(f4) -- (f6);
+\draw[on=<{16,19-}>{cur}] 		(f5) -- (f6);
 
 \end{tikzpicture}

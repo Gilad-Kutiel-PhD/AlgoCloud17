@@ -2,7 +2,7 @@
 \def\cpuval#1#2#3{\only<#1>{\cellcolor{orange}}\onslide<#2->{#3}}
 \begin{frame}{Integral Polynomial Costs, Single Node}
 
-Min CPU Given a Cost Budget (e.g. 5\$).
+Min CPU per Cost Budget.
 \vspace{5mm}
 
 \begin{columns}
@@ -18,13 +18,15 @@ Min CPU Given a Cost Budget (e.g. 5\$).
 \setlength\tabcolsep{2mm}
 \begin{tabular}{| c | c | c | c | c | c | c | c |}
 
-\hline	\$&\faCloud					&\faGear 					&\faWrench 					&\faGears				&\faFlash 					&\faFlask 				&\faFilter	
-\\\hline 5&0 						&\cpuval{2}{3}{3}			&\cpuval{5}{6}{5} 			&\cpuval{8}{9}{7}		&\cpuval{11}{12}{8}			&\cpuval{14}{15}{-}		&\cpuval{15,17-18}{16}{11}
-\\\hline 4&\cpuval{2}{1}{0}			&\cpuval{3,8}{4}{3}			&\cpuval{6,11}{7}{5}		&\cpuval{9,11}{10}{7}	&\cpuval{11,15,17-18}{12}{8}&\cpuval{14,15}{15}{-}	&\cpuval{15}{16}{13}
-\\\hline 3&\cpuval{3}{1}{0}			&\cpuval{3,5,9}{4}{3}		&\cpuval{6,11,17-18}{7}{5}	&\cpuval{9,11}{10}{7}	&\cpuval{12,15}{13}{10}		&\cpuval{14,15}{15}{-}	&\cpuval{15}{16}{-} 
-\\\hline 2&\cpuval{3}{1}{0}			&\cpuval{3,6,9}{4}{3}		&\cpuval{6,12}{7}{-}		&\cpuval{9,12}{10}{7} 	&\cpuval{13,15}{14}{-} 		&\cpuval{14,15}{15}{-}	&\cpuval{15}{16}{-}
-\\\hline 1&\cpuval{3}{1}{0}			&\cpuval{3,6,9,17-18}{4}{3}	&\cpuval{6,14,13}{7}{-}		&\cpuval{9,13}{10}{-}	&\cpuval{13,15}{14}{-} 		&\cpuval{14,15}{15}{-}	&\cpuval{15}{16}{-}
-\\\hline 0&\cpuval{3,17-18}{1}{0}	&\cpuval{3,6,9}{4}{-}		&\cpuval{6,13,14}{7}{-}		&\cpuval{9,13}{10}{-}	&\cpuval{13,15}{14}{-} 		&\cpuval{14,15}{15}{-}	&\cpuval{15}{16}{-}
+\hline	\$&\faCloud					&\faGear 					&\faWrench 						&\faGears				&\faFlash 					&\faFlask 					&\faFilter	
+\\\hline 7&0 						&\cpuval{2}{3}{3}			&\cpuval{5}{6}{6} 				&\cpuval{8}{9}{5}		&\cpuval{11}{12}{9}			&\cpuval{13}{14}{6}			&\cpuval{16}{17}{9}
+\\\hline 6&\cpuval{2}{1}{0}			&\cpuval{3,5}{4}{3}			&\cpuval{6,11}{7}{6}			&\cpuval{9}{10}{5}		&\cpuval{11,16}{12}{9}		&\cpuval{13,16}{14}{6}		&\cpuval{16}{17}{9}
+\\\hline 5&\cpuval{3}{1}{0}			&\cpuval{3,6,8}{4}{3}		&\cpuval{6,11,13}{7}{6}			&\cpuval{9,13}{10}{5}	&\cpuval{11,16}{12}{9}		&\cpuval{13,16,20-18}{14}{6}&\cpuval{16,18-19}{17}{10}
+\\\hline 4&\cpuval{3}{1}{0}			&\cpuval{3,6,9}{4}{3}		&\cpuval{6,11,13}{7}{6}			&\cpuval{9,13}{10}{5}	&\cpuval{11,16,20-18}{12}{9}&\cpuval{14,16,19}{15}{7}	&\cpuval{16}{17}{12}
+\\\hline 3&\cpuval{3}{1}{0}			&\cpuval{3,6,9}{4}{3}		&\cpuval{6,11,13,20-18}{7}{6}	&\cpuval{9,13}{10}{5}	&\cpuval{11,16}{12}{9}		&\cpuval{16}{15}{-}			&\cpuval{1-0}{17}{-} 
+\\\hline 2&\cpuval{3}{1}{0}			&\cpuval{3,6,9}{4}{3}		&\cpuval{6,11,14,19}{7}{6}		&\cpuval{14}{10}{-}		&\cpuval{1-0}{12}{-} 		&\cpuval{1-0}{15}{-}		&\cpuval{1-0}{17}{-}
+\\\hline 1&\cpuval{3}{1}{0}			&\cpuval{3,6,9,19}{4}{3}	&\cpuval{1-0}{7}{-}				&\cpuval{1-0}{10}{-}	&\cpuval{1-0}{12}{-} 		&\cpuval{1-0}{15}{-}		&\cpuval{1-0}{17}{-}
+\\\hline 0&\cpuval{3,19}{1}{0}		&\cpuval{1-0}{4}{-}			&\cpuval{1-0}{7}{-}				&\cpuval{1-0}{10}{-}	&\cpuval{1-0}{12}{-} 		&\cpuval{1-0}{15}{-}		&\cpuval{1-0}{17}{-}
 \\\hline
 \end{tabular}
 
@@ -33,6 +35,6 @@ Min CPU Given a Cost Budget (e.g. 5\$).
 \end{columns}
 
 \begin{center}
-\onslide<19>{Search for min Budget s.t. CPU constraint.}
+\onslide<20>{Search for min Budget s.t. CPU constraint.}
 \end{center}
 \end{frame}
