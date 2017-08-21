@@ -1,4 +1,4 @@
-\begin{tikzpicture}[x=8.5mm, thick, every node/.append style={draw=none}]
+\begin{tikzpicture}[x=8.5mm, every node/.append style={draw=none}]
 
 % SDN 
 \begin{scope}[yshift=.5cm]
@@ -51,8 +51,8 @@
 
 \begin{scope}[every node/.style={label}]
 \foreach \c [count=\i] in {2,3,6,7,4,8}{
-	\node[above=0 of f\i]{\c{}\$ / 0 \cpu};
-	\node[below=0 of c\i]{0\$ / \c{} \cpu};
+	\node[above=0 of f\i]{\c{}\$ \color{black!20}/ 0 \cpu};
+	\node[below=0 of c\i]{{\color{black!20}0\$ /} \c{} \cpu};
 }
 \end{scope}
 
