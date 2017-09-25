@@ -1,5 +1,5 @@
 #TeXlipse project settings
-#Mon Aug 14 08:08:49 IDT 2017
+#Sun Sep 03 14:39:36 IDT 2017
 markTmpDer=true
 builderNum=2
 outputDir=out/
@@ -8,7 +8,7 @@ bibrefDir=
 outputFormat=pdf
 tempDir=tmp
 mainTexFile=main.tex
-outputFile=algocloud17.pdf
+outputFile=17-algocloud.pdf
 langSpell=en
 markDer=true
 srcDir=
